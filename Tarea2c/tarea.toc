@@ -1,0 +1,14 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Conetxto}{3}{section.1}% 
+\contentsline {section}{\numberline {2}An\IeC {\'a}lisis}{4}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}\IeC {\'A}rea del patr\IeC {\'o}n de radiaci\IeC {\'o}n}{4}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Niveles de comunicaci\IeC {\'o}n}{5}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Establecimiento de c\IeC {\'e}lulas}{6}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}An\IeC {\'a}lisis y asignaci\IeC {\'o}n de frecuencias}{8}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Asignaci\IeC {\'o}n de frecuencias}{9}{subsection.3.1}% 
+\contentsline {section}{\numberline {4}An\IeC {\'a}lisis de \IeC {\'a}reas vulnerables}{10}{section.4}% 
+\contentsline {section}{\numberline {5}C\IeC {\'a}lculos de eficiencia espectral y cantidad de llamadas}{11}{section.5}% 
+\contentsline {section}{\numberline {6}Conclusi\IeC {\'o}n}{12}{section.6}% 
+\contentsline {section}{\numberline {7}Anexo}{13}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Rutina}{13}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Mapa}{18}{subsection.7.2}% 
