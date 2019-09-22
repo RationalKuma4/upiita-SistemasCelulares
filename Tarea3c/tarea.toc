@@ -7,5 +7,6 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Composici\IeC {\'o}n de la red}{4}{subsubsection.2.1.1}% 
 \contentsline {subsection}{\numberline {2.2}TDMA}{5}{subsection.2.2}% 
 \contentsline {subsection}{\numberline {2.3}Erlang B}{5}{subsection.2.3}% 
-\contentsline {subsection}{\numberline {2.4}Par\IeC {\'a}metros de Poisson}{5}{subsection.2.4}% 
-\contentsline {section}{\numberline {3}Conclusi\IeC {\'o}n}{8}{section.3}% 
+\contentsline {subsubsection}{\numberline {2.3.1}Requerimiento de Erlang B}{5}{subsubsection.2.3.1}% 
+\contentsline {subsection}{\numberline {2.4}Par\IeC {\'a}metros de Poisson}{7}{subsection.2.4}% 
+\contentsline {section}{\numberline {3}Conclusi\IeC {\'o}n}{10}{section.3}% 

@@ -167,7 +167,44 @@ Erlang B para estimar el número de líneas requeridas para las conexiones PSTN 
 conexiones de cable privadas. Las tres variables involucradas son Tráfico de hora ocupada 
 (BHT), Bloqueo y Líneas.
 
+\subsubsection{Requerimiento de Erlang B}
+Para lo requerimiento de Erlang B, se toma coma base principal los cambios de población 
+inmigrante y emigrante referente al transporte público. Dada la cercanía del municipio 
+con la terminal del transporte colectivo metro, Pantitlán. El mayor aumento en la 
+población tiene como fuente el municipio de Chimalhuacán y el complemento del municipio 
+de La Paz. 
+\\ \\ 
+Este transito se realiza por tres avenidas principales que se encuentran paralelas entre 
+sí. Estas avenidas son: Av. Bordo de Xochiaca, Av. Chimalhuacán y Av. Pantitlán. 
+Partiendo de la población económicamente activa en Chimalhuacán en el año 2000 que es de 
+246100 de acuerdo con cifras expuestas por el INEGI. De esta población se tomará un 40\% 
+de esta población dado que no necesariamente toda esta población tiene que pasar por 
+este municipio para llegar al transporte metro. Para el municipio de La Paz se estima 
+que hay una población de 35,226 económicamente activa. De este número se tomará el 20\%. 
+Por último, para ambas poblaciones se supone que el 5\% de esa población es usaría de un 
+dispositivo móvil.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{imagenes/t35.png}
+    \caption{Avenidas de transito.}
+\end{figure}
+\begin{equation}
+    246100*0.4*0.05=4922 \ usuarios
+\end{equation}
+\begin{equation}
+    35226*0.4*0.05=704 \ usuarios
+\end{equation}
+
 \subsection{Parámetros de Poisson}
+Para el cambio de década se estima el aumento de población de usuarios en un 1.6\%.
+\begin{equation}
+    61432.7*1.6=98292.32\approx 98293
+\end{equation}
+Sumando la población mencionada en la sección anterior.
+\begin{equation}
+    98293 + 4922 + 704 = 103919 \ usuarios
+\end{equation}
+\\
 Con el cambio del sistema AMPS a GSM, el grado de servicio aumenta de 80\% a un 99.8\%, por 
 lo que el valor que será buscado en la tabla de Erlang A se calulará de nuevo. También es 
 importante mencionar que los canales cambiaran por circuitos. El número de circuitos se 
@@ -182,22 +219,35 @@ Se muestra en la siguiente imagen.
     \caption{Total de circuitos en el Clúster.}
 \end{figure}
 \\
-Ahora el valor de la tabla de Erlang A.
+Ahora el valor de la tabla de Erlang A para un GoS de 80\% y 99.8\%.
 \begin{equation}
-    \frac{100-GoS}{100}=\frac{100-99.8}{100}=0.002
+    \frac{100-GoS}{100}=\frac{100-80}{100}=0.2
 \end{equation}
-\\
-Con estos valores recien obtenidos y una regla de tres, se obtiene el total de Erlangs A.
-\\ \\
 $n=301 => A=371.52 \ Erlnag$
 \\ 
 $n_{TDMA}=10736->A_c=13251.291 \ Erlnag$
 \\ \\
 $A_{TDMA}$=13251.291
+
+
+\newpage
+\begin{equation}
+    \frac{100-GoS}{100}=\frac{100-99.8}{100}=0.002
+\end{equation}
+$n=301 => A=264.18 \ Erlnag$
+\\ 
+$n_{TDMA}=10736->A_c=9422.71 \ Erlnag$
+\\ \\
+$A_{TDMA}$=9422.71
 \\ \\
 El número de llamadas.
 \begin{equation}
     N_{TDMA}=\frac{A_{TDMA}*h_p}{\overline{t}}=\frac{13251.291*3600}{180}=265025.82 \ llamadas
+\end{equation}
+\\ \\
+La relación de llamadas y la nueva población.
+\begin{equation}
+    \frac{N}{p(00s)}=\frac{265025.82}{103919}=2.55[\frac{llamadas}{usuarios}]
 \end{equation}
 \\ \\
 La intensidad de tráfico.
@@ -222,17 +272,17 @@ asignación.
 \begin{equation}
     \overline{t}_w=t_w*P(>0)=t_w*\lambda=t_w*\frac{N_{TDMA}}{hp}=0.02\overline{7}*\frac{265025.82}{3600}=2.044seg
 \end{equation}
-
+\\
 Los datos obtenidos anteriormente servirán para calcular los parámetros que entrega 
 la distribución de Poisson. En seguida se muestra un diagrama con los parámetros que se 
 obtendrán.
-
+\\ 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.7\textwidth]{imagenes/t34.png}
     \caption{Parámetros que entrega la distribución de Poisson.}
 \end{figure}
-
+\\ 
 Primero se calcula las gestionadas atendidas $C_{A}$ con la siguiente expresión.
 \begin{equation}
     C_A=n_{TDMA} \ * \ \lambda = 265025.82 * 73.618=19510670.82
@@ -264,11 +314,15 @@ tabla mostrando la evolución demográfica del municipio.
     \caption{Evolución demográfica del municipio de Nezahualcóyotl.}
 \end{figure}
 
+
+
+
 Para estos datos el cambio de AMPS a GSM resulta en que el servicio se clasificaría como 
-insuficiente. Aunque hay factores demográficos y socioeconómicos que hay que temar en 
+suficiente. Aunque hay factores demográficos y socioeconómicos que hay que temar en 
 cuenta. El primero de ellos, es considerado como uno de los municipios con mayor densidad 
 poblacional. Así que si se pusiera en uso el sistema GSM en horarios de noche-madrugada-mañana, 
-el sistema dejaría sin servicio a un gran número de la población. 
+el sistema dejaría sin servicio a un gran número de la población. Estos suspuestos pueden cambiar 
+en la realidad. 
 \\ \\
 Pero ¿por qué se menciona 
 en concreto este horario? Como gran parte de los municipios del Estado de México que se 
