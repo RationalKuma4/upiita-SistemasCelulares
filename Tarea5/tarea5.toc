@@ -1,0 +1,7 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Antecedentes}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}C\IeC {\'o}dec}{3}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}G.729}{3}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Detecci\IeC {\'o}n de activaci\IeC {\'o}n de voz (VAD)}{3}{subsection.1.3}% 
+\contentsline {subsection}{\numberline {1.4}CRTP}{4}{subsection.1.4}% 
+\contentsline {section}{\numberline {2}Desarrollo}{5}{section.2}% 
