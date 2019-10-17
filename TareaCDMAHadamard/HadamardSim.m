@@ -78,7 +78,7 @@ end
 figure(2);
 for i=7:12
     subplot(6,1,i-6)
-    plot(t,signals(i-6,:));
+    plot(t,signals(i,:));
     grid on;
 end
 
