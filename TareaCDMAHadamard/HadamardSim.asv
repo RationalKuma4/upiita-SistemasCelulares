@@ -71,16 +71,17 @@ end
 figure(1);
 for i=1:6
     subplot(6,1,i);
-    plot(t,signals(i,:),'LineWidth',1.5);
-    title(mat2str(H(i,:)));
+    plot(t,signals(i,:));
+    title('1     1     1     1     1     1     1     1     1     1     1     1');
     grid on;
 end
 
 figure(2);
 for i=7:12
     subplot(6,1,i-6);
-    plot(t,signals(i,:),'LineWidth',1.5);
-    title(mat2str(H(i,:)));
+    plot(t,signals(i,:));
+    title(H(i,:));
     grid on;
 end
+
 
