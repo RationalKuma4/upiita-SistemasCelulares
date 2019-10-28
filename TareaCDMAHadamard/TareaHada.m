@@ -1,16 +1,14 @@
+clc;
 clear all;
 close all;
-clc;
-
+%% Matriz Hadamard
 H = hadamard(512);
 t = 0:0.02:12;
-f=.5;
+f=0.05;
 x=sin(2*pi*f*t);
-
-% Rectificar señal
-x(x<0) = x(x>0)*1;
-
-signals=zeros(12,601);
+% Rectificar señal y señal en tiempo
+x(x<=0) = x(x<=0)*-1;
+signals=zeros(512,601);
 signalOne=zeros(1,601);
 for j=1:length(H(1,:))
     factor=H(j,:);
@@ -68,25 +66,47 @@ for j=1:length(H(1,:))
     signals(j,:)=signalOne;
 end
 
-H(5,:)
+% Graficar renglon de matriz
+figure(1);
+stairs(H(250,:)); 
+ylim([-1.2 1.2]); 
+xlim([1 20]);
+grid on;
+%%
+% Graficar lote de señales
 % figure(1);
 % for i=1:6
 %     subplot(6,1,i);
 %     plot(t,signals(i,:),'LineWidth',1.5);
-%     title(mat2str(H(i,:)));
-%     grid on;
-% end
-% 
-% figure(2);
-% for i=7:12
-%     subplot(6,1,i-6);
-%     plot(t,signals(i,:),'LineWidth',1.5);
-%     title(mat2str(H(i,:)));
+%     %title(mat2str(H(i,:)));
 %     grid on;
 % end
 
+%% Modulacion QPSK
+% Rectificar valores de matriz para graficar
+H(H<0) = 0;
+data=H(512,:);
 
-y = round(rand(1,10)); %binary vector
-x = [0:length(y)-1]; %[0,1,2,3,4....]
-stairs(x,y);
-axis([0,10,-0.5,1.5])
+data_NZR=2*data-1; % Datos representados en NZR
+s_p_data=reshape(data_NZR,2,length(data)/2);  % S/P convertion of data
+br=10.^6; %Let us transmission bit rate  1000000
+f=br; % minimum carrier frequency
+T=1/br; % bit duration
+t=T/99:T/99:T; % Time vector for one bit information
+
+y=[];
+y_in=[];
+y_qd=[];
+for(i=1:length(data)/2)
+    y1=s_p_data(1,i)*cos(2*pi*f*t); % inphase component
+    y2=s_p_data(2,i)*sin(2*pi*f*t) ;% Quadrature component
+    y_in=[y_in y1]; % inphase signal vector
+    y_qd=[y_qd y2]; %quadrature signal vector
+    y=[y y1+y2]; % modulated signal vector
+end
+Tx_sig=y; 
+tt=T/99:T/99:(T*length(data))/2;
+
+figure(2)
+plot(tt,Tx_sig,'linewidth',1), grid on;
+title('QPSK');
