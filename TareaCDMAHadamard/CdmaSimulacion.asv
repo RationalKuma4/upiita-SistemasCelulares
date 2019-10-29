@@ -99,6 +99,10 @@ for j=1:length(H)
         if(752<i && i<801)
             signalOne(i)=x(i)*factor(16);
         end
+        
+        if(552<i && i<601)
+            signalOne(i)=x(i)*factor(12);
+        end
     end
     
     signals(j,:)=signalOne;
