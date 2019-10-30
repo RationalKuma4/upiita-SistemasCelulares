@@ -1,10 +1,12 @@
 function [usuarioIdentificado] = ProbarOtogonalidad(H, test)
     esOrtogonal=1;
     for j=1:length(H)
+        disp(strcat('[',num2str(test),']','.','[',num2str(H(j,:)),']','=',num2str(dot(test,H(j,:))),' ','usuario',num2str(j)))
         if(dot(test,H(j,:))~=0)
             if(test~=H(j,:))
                 esOrtogonal=0;
             end
+            
             usuarioIdentificado=j;
         end
     end

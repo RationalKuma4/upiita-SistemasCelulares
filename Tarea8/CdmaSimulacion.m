@@ -30,6 +30,7 @@ proveedores = {telcel, movistar, iu, at};
 
 % Seleccion aleatoria de proveedor
 p = randi([1 4],1,1);
+p=1;
 prov=Proveedor();
 switch p
     case 1
@@ -45,6 +46,7 @@ disp(strcat('Proveedor: ', prov.Nombre))
 
 % Sevicio: W->-1, F->1
 servicio=randi([0 1],1,1)*2-1;
+servicio=1;
 if(servicio==1)
     disp('Servicio:Face');
 else
@@ -150,6 +152,7 @@ end
 signalOne=randi([1 16],1,1);
 signalTwo=randi([1 16],1,1);
 signalThree=randi([1 16],1,1);
+signalThree=5;
 
 subplot(6,1,2)
 plot(t,signals(signalOne,:),'LineWidth',1.5);
@@ -184,14 +187,13 @@ usuarioThree=ProbarOtogonalidad(H, testLines(3,:));
 %% 4 Armado de trama y Simulacion QPSK
 % Servicio|Proveedor|CellId?|usuario
 usuarioModular=input('Cúal de los usuarios mostrados quieres modular(1,2,3)?');
-switch p
+switch usuarioModular
     case 1
-        trama=[servicio prov.CodigoNZR, testLines(1,:)];
+        trama=[servicio prov.CodigoNZR testLines(1,:)];
     case 2
-        trama=[servicio prov.CodigoNZR, testLines(2,:)];
+        trama=[servicio prov.CodigoNZR testLines(2,:)];
     case 3
-        trama=[servicio prov.CodigoNZR, testLines(3,:)];
-    case 4
+        trama=[servicio prov.CodigoNZR -1 1 testLines(3,:)];
 end
 
 s_p_data=reshape(trama,2,length(trama)/2);
@@ -215,12 +217,12 @@ tt=T/99:T/99:(T*length(trama))/2;
 subplot(6,1,6);
 plot(tt,Tx_sig,'linewidth',1.5),
 grid on;
-title('Codigo modulado QPSK');
+title('Trama modulada QPSK');
 
 subplot(6,1,5);
 stairs(0:length(trama), [trama trama(24)],'linewidth',1.5);
 grid on;
-title('Trama codififcada');
+title('Trama servicio|proveedor|nodo|usuario');
 
 
 %% 
