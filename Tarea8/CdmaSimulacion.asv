@@ -188,11 +188,12 @@ switch p
     case 1
         trama=[servicio prov.CodigoNZR, testLines(1,:)];
     case 2
-        trama=[servicio prov.CodigoNZR, testLines(2,:)];
+        prov = proveedores{2};
     case 3
-        trama=[servicio prov.CodigoNZR, testLines(3,:)];
+        prov = proveedores{3};
     case 4
 end
+
 
 s_p_data=reshape(trama,2,length(trama)/2);
 br=10.^6;
