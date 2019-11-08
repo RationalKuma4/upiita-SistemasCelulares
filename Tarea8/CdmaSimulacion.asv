@@ -7,10 +7,10 @@ eleccion=input('Datos aleatorios(0) o elegir(1): ');
 
 if(eleccion==0)
     puntoEstudio=randi([1 3],1,1);
-    disp(strcat('Punto de esudio', ' ', num2str(puntoEstudio)))
 else
     puntoEstudio=input('Elegir punto de estudio (1 2 3): ');
 end
+
 
 %% 2 Codificacion de proveedor
 % Proveedor telcel 334020
@@ -277,14 +277,8 @@ stairs(0:length(trama), [trama trama(24)],'linewidth',1.5);
 grid on;
 title('Trama servicio|proveedor|nodo|usuario');
 
-disp('La potencia de rececpcion en el dispositivo es de:')
-if(nodoEleccion==1)
-    disp(puntoInfo.PrxNodoB1);
-elseif(nodoEleccion==2)
-    disp(puntoInfo.PrxNodoB2);
-else
-    disp(puntoInfo.PrxNodoB3);
-end
+
+
 
 
 %%
